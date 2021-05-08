@@ -21,7 +21,6 @@ namespace Practical_5
                     else
                         zodiacSign = "Aquarius";
                     break;
-
                 case "February":
                     if (day < 19)
                         zodiacSign = "Aquarius";
@@ -42,7 +41,7 @@ namespace Practical_5
                     break;
                 case "May":
                     if (day < 21)
-                        zodiacSign = "Capricorn";
+                        zodiacSign = "Taurus";
                     else
                         zodiacSign = "Gemini";
                     break;
