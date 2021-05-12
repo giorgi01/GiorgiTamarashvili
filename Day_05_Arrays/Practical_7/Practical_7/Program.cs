@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Practical_7
+namespace Practical_6
 {
     class Program
     {
@@ -12,28 +12,44 @@ namespace Practical_7
             Console.Write("Enter array column size: ");
             int columnSize = int.Parse(Console.ReadLine());
 
-            int[,] arr2d = new int[rowSize, columnSize];
+            int[,] firstArray = new int[rowSize, columnSize];
+            int[,] secondArray = new int[rowSize, columnSize];
+
+
+            Console.WriteLine("Fill first matrix");
 
             for (int i = 0; i < rowSize; i++)
             {
                 for (int j = 0; j < columnSize; j++)
                 {
                     Console.Write($"Enter number for index {i},{j}: ");
-                    arr2d[i, j] = int.Parse(Console.ReadLine());
+                    firstArray[i, j] = int.Parse(Console.ReadLine());
                 }
             }
 
-            Console.WriteLine("Here is matrix view of multidimensional array");
+            Console.WriteLine("Fill second matrix");
 
             for (int i = 0; i < rowSize; i++)
             {
                 for (int j = 0; j < columnSize; j++)
                 {
-                    Console.Write(arr2d[i, j]);
+                    Console.Write($"Enter number for index {i},{j}: ");
+                    secondArray[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("Here is sum of two matrices");
+
+            for (int i = 0; i < rowSize; i++)
+            {
+                for (int j = 0; j < columnSize; j++)
+                {
+                    Console.Write(firstArray[i, j] + secondArray[i, j]);
                     if (j != columnSize - 1) Console.Write(", ");
                 }
                 Console.Write("\n");
             }
+
         }
     }
 }
