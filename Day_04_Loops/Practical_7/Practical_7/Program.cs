@@ -10,18 +10,18 @@ namespace Practical_7
 
             int num = int.Parse(Console.ReadLine());
 
-            string result = "";
+            string result = "0 ";
 
             int firstNum = 0;
             int secondNum = 1;
 
-            for (int i = 0; i <= num; i++)
+            for (int i = 1; i <= num; i++)
             {
-                result += $"{firstNum} ";
-
                 int temp = firstNum;
                 firstNum = secondNum;
                 secondNum += temp;
+
+                result += $"{firstNum} ";
             }
 
             Console.WriteLine(result);
