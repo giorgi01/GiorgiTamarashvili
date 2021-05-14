@@ -20,10 +20,9 @@ namespace Practical_5
             for (int i = 0; i < arrSize; i++)
             {
                 bool isUnique = true;
-
-                for (int j = 0; j < i; j++)
+                for (int j = 0; j < arrSize; j++)
                 {
-                    if (arr[i] == arr[j])
+                    if (arr[i] == arr[j] && i != j)
                     {
                         isUnique = false;
                         break;
