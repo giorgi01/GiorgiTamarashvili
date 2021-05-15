@@ -29,7 +29,7 @@ namespace Practical_3
             foreach (int item in arr)
             {
                 if (item > max) max = item;
-                if (item < min) min = item;
+                else if (item < min) min = item;
             }
 
             return new int[] { min, max };
