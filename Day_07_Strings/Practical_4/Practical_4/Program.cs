@@ -9,15 +9,16 @@ namespace Practical_4
             return (text.Split()).Length;
         }
 
-        static void PrintCount(int count)
+        static void PrintCount(string text, int count)
         {
-            Console.WriteLine(count);
+            Console.WriteLine($"In phrase \"{text}\" are {count} words");
         }
 
         static void Main(string[] args)
         {
-            int count = GetWordsCount("Hello world");
-            PrintCount(count);
+            string text = "Hello world";
+            int count = GetWordsCount(text);
+            PrintCount(text, count);
         }
     }
 }
