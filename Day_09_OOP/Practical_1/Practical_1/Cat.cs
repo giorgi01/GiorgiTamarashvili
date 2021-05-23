@@ -21,7 +21,7 @@ namespace Practical_1
                 _name = value;
             }
         }
-        public int Breed { get; set; }
+        public string Breed { get; set; }
         public int Age
         {
             get
