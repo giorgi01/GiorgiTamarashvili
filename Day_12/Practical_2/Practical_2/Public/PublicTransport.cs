@@ -17,9 +17,6 @@ namespace Practical_2
             return true;
         }
 
-        public virtual void Carry()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Carry();
     }
 }

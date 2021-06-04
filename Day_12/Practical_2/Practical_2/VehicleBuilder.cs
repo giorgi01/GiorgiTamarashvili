@@ -87,9 +87,22 @@ namespace Practical_2
             return new F1Engine(hp, cylinders, fuelType, engineType);
         }
 
-        internal static Vehicle BuildOffRoadCar()
+        public static OffRoadCar BuildOffRoadCar()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Building OffRoad car");
+            Engine engine = BuildEngine();
+
+            Console.Write("Do you want to add 4WD option to your car? ");
+            string answer = Console.ReadLine();
+
+            if (answer.Equals("Yes"))
+            {
+                return new OffRoadCar(engine, true);
+            }
+            else
+            {
+                return new OffRoadCar(engine, false);
+            }
         }
 
         public static Sedan BuildSedan()

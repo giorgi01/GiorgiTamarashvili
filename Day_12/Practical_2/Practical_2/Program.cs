@@ -79,7 +79,11 @@ namespace Practical_2
         static void Main(string[] args)
         {
             Vehicle vehicle = GetVehicle();
-            vehicle.Describe();
+            Console.Write("Press Y if you want to describe car that you built ");
+            var userKey = Console.ReadKey();
+            Console.WriteLine();
+            if(userKey.KeyChar == 'y')
+                vehicle.Describe();
         }
     }
 }
