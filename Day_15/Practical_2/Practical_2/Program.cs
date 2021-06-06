@@ -21,6 +21,7 @@ namespace Practical_2
             Triangle someTriangle = GetTriangle();
 
             Console.WriteLine(triangle.Area());
+            Console.WriteLine(triangle.Perimeter());
             Console.WriteLine(someTriangle.Area());
             
             Triangle anotherTriangle = triangle + someTriangle;
