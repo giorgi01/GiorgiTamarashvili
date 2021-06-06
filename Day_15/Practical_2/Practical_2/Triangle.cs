@@ -56,7 +56,12 @@ namespace Practical_2
 
         public static Triangle operator +(Triangle a, Triangle b)
         {
-            return new Triangle(a.A + b.A, a.B + b.B, a.C + b.C);
+            double area = a.Area() + b.Area(); // 2A == 2*aSide if aSide == bSide
+            double aSide = area / 2d;
+            double bSide = area / 2d;
+            double hypotenuse = Math.Sqrt(Math.Pow(aSide, 2) + Math.Pow(bSide, 2));
+
+            return new Triangle(aSide, bSide, hypotenuse);
         }
 
         public static explicit operator Triangle(double a)
