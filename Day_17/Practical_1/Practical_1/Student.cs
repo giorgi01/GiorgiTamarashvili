@@ -2,7 +2,7 @@
 
 namespace Practical_1
 {
-    public class Student
+    public class Student : IComparable
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,6 +17,11 @@ namespace Practical_1
         public override string ToString()
         {
             return FirstName + " " + LastName;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return LastName.CompareTo(((Student)obj).LastName);
         }
     }
 }

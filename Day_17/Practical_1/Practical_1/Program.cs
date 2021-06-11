@@ -57,6 +57,14 @@ namespace Practical_1
             students.TrimExcess();
             Console.WriteLine(students.Capacity);
 
+            // ArrayList
+
+            ArrayList studentsArrList = new ArrayList();
+            studentsArrList.Add(student1);
+            studentsArrList.Add(student2);
+            var studentIndex = studentsArrList.BinarySearch(new Student("Someone", "Else", "00120301"), new CaseInsensitiveComparer()); // not found
+            PrintItems(studentsArrList);
+
             // Tuple
 
             var tuple = new Tuple<string, List<Student>>("Students", students);
@@ -64,7 +72,7 @@ namespace Practical_1
             Console.WriteLine(tuple.Item2.Capacity);
 
             // Dictionary
-            
+
             Dictionary<string, string> countries = new Dictionary<string, string>();
             countries["GE"] = "Georgia";
             countries["US"] = "United States";
@@ -72,6 +80,7 @@ namespace Practical_1
             countries["TR"] = "Turkey";
 
             countries.TryGetValue("TR", out string turkey);
+            
             bool added = countries.TryAdd("TR", "Brazil");
             Console.WriteLine(added);
 
@@ -86,13 +95,18 @@ namespace Practical_1
             stack.Push(0);
             stack.Push(1);
             stack.Push(2);
-            
+
             Console.WriteLine(stack.Peek());
             PrintItems(stack);
 
             Console.WriteLine(stack.Pop());
             stack.Pop();
             stack.Pop();
+            stack.TryPeek(out int res1);
+            stack.TryPop(out int res2);
+            
+            Console.WriteLine(res1);
+            Console.WriteLine(res2);
 
             PrintItems(stack);
 
@@ -100,6 +114,7 @@ namespace Practical_1
             Console.WriteLine(stack.Contains(0));
 
             // Queue (FIFO)
+
             Queue<bool> queue = new Queue<bool>();
             queue.Enqueue(true);
             queue.Enqueue(false);
@@ -108,7 +123,9 @@ namespace Practical_1
 
             Console.WriteLine(queue.Dequeue());
             queue.Dequeue();
+            queue.TryDequeue(out bool result);
             
+            Console.WriteLine(result);
             PrintItems(queue);
 
             queue.Enqueue(false);
