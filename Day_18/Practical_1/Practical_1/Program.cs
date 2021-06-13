@@ -6,17 +6,23 @@ namespace Practical_1
     {
         static void Main(string[] args)
         {
-            LinkedItem<int> list = new LinkedItem<int>();
-            list[0] = 1;
-            list[0] = 2;
-            list.PrintItems();
             try
             {
+                LinkedItem<int> list = new LinkedItem<int>();
+                list[0] = 1;
+                list[0] = 2;
+                
+                list.PrintItems();
+
                 Console.WriteLine(list[2]);
             }
             catch (NotAvailableElementException ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error occured: " + ex.Message);
             }
         }
     }
