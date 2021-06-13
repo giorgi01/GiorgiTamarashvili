@@ -7,14 +7,12 @@ namespace Practical_2
     abstract public class IBAN
     {
         public string Number { get; set; }
-        public string OwnerFirstName { get; set; }
-        public string OwnerLastName { get; set; }
+        public User Owner { get; set; }
         public double Balance { get; set; }
-        public IBAN(string number, string firstName, string lastName, double balance)
+        public IBAN(string number, User owner, double balance)
         {
             Number = number;
-            OwnerFirstName = firstName;
-            OwnerLastName = lastName;
+            Owner = owner;
             Balance = balance;
         }
     }

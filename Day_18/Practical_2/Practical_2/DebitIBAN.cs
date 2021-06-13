@@ -6,19 +6,10 @@ namespace Practical_2
 {
     public class DebitIBAN : IBAN
     {
-        public DebitIBAN(string number, string ownerFirstName, string ownerLastName, double balance) :
-                base(number, ownerFirstName, ownerLastName, balance)
+        public DebitIBAN(string number, User owner, double balance) :
+                base(number, owner, balance)
         {
-        }
-
-        public void Deposit(double funds)
-        {
-            Balance += funds;
-        }
-
-        public void Withdraw(double funds)
-        {
-            Balance -= funds;
+            owner.BankAccounts.Add(this);
         }
     }
 }

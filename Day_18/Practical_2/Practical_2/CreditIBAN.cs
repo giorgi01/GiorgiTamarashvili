@@ -7,20 +7,10 @@ namespace Practical_2
     public class CreditIBAN : IBAN
     {
         public double Debt { get; set; }
-        public CreditIBAN(string number, string ownerFirstName, string ownerLastName, double balance) : 
-            base(number, ownerFirstName, ownerLastName, balance)
+        public CreditIBAN(string number, User owner, double balance) : 
+            base(number, owner, balance)
         {
-        }
-
-        public void Borrow(double funds)
-        {
-            Balance += funds;
-            Debt += funds;
-        }
-
-        public void Withdraw(double funds)
-        {
-            Balance -= funds;
+            owner.BankAccounts.Add(this);
         }
     }
 }
