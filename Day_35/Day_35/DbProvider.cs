@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Day_35
 {
-    public class DbProvider<T> : IDbProvider<T>
+    public class DbProvider<T> : IDbProvider<T> where T: Model
     {
         private List<T> _dbObjects = new List<T>();
 
@@ -32,8 +32,8 @@ namespace Day_35
         public void UpdateElement(Func<T, bool> predicate, T newElement)
         {
             var element = GetElement(el => predicate(el));
+            newElement.Id = element.Id;
             _dbObjects[_dbObjects.IndexOf(element)] = newElement; 
-            // აქ id იცვლება, რაც რა თქმა უნდა მიუღებელია, თუმცა ვერ მივხვდი სხვანაირად როგორ უნდა გამეკეთებინა
         }
 
         public void DeleteElement(Func<T, bool> predicate)

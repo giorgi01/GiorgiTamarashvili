@@ -1,0 +1,21 @@
+2021-07-30 21:24:34.138 +04:00 [FTL] Application startup exception
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddControllers' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.EnsureControllerServices(IEndpointRouteBuilder endpoints)
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers(IEndpointRouteBuilder endpoints)
+   at PersonManagement.Startup.<>c.<Configure>b__1_0(IEndpointRouteBuilder endpoints) in C:\Apps\PersonManagement\PersonManagement\Startup.cs:line 35
+   at Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder builder, Action`1 configure)
+   at PersonManagement.Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env) in C:\Apps\PersonManagement\PersonManagement\Startup.cs:line 33
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.<>c__DisplayClass13_0.<UseStartup>b__2(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2021-07-30 21:37:55.124 +04:00 [INF] Application starting...
+2021-07-30 21:38:07.083 +04:00 [INF] Application starting...
+2021-07-30 21:38:33.826 +04:00 [ERR] Customer Not Found
+2021-07-30 21:41:52.874 +04:00 [INF] Application starting...
+2021-07-30 21:43:11.850 +04:00 [INF] Application starting...
+2021-07-30 21:43:15.184 +04:00 [INF] HTTP GET / responded 404 in 0.9053 ms
+2021-07-30 21:43:35.661 +04:00 [INF] HTTP GET /api/person responded 200 in 144.6187 ms

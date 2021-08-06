@@ -1,4 +1,4 @@
-﻿namespace Day_35
+﻿namespace Day_36
 {
     public class Company : Model
     {
