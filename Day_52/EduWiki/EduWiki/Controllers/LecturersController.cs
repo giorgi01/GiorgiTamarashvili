@@ -65,7 +65,7 @@ namespace EduWiki.Controllers
             }
             else
             {
-                ModelState.Clear();
+                //ModelState.Clear();
                 ModelState.AddModelError("ModelError", "Incorrect data format");
                 return View(lecturerVM);
             }
@@ -89,8 +89,7 @@ namespace EduWiki.Controllers
             }
             else
             {
-
-                ModelState.Clear();
+                //ModelState.Clear();
                 ModelState.AddModelError("ModelError", "Incorrect data format");
                 return View(lecturerVM);
             }
