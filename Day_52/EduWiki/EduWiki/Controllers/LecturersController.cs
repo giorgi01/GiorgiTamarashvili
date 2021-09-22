@@ -46,18 +46,26 @@ namespace EduWiki.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(LecturerViewModel lecturerVM)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 // მესმის რომ ქვედა ლაინი LecturerService-ში გადატანა აჯობებდა, 
                 // უბრალოდ IFormFile-ს სერვის ლეიერში მაპინგის დროს ბევრ პრობლემას შევეჩეხე, netstandard-ის ვერსიებზე მიგდებდა ერორებს და აღარ ჩავეძიე
                 lecturerVM.ImagePath = await _fileService.UploadAsync(lecturerVM.ImageFile);
                 var lecturer = lecturerVM.Adapt<LecturerServiceModel>();
                 await _service.CreateAsync(lecturer);
+
+                // მეორე სერვისიც მხოლოდ იმიტომ გამოვიძახე აქ რომ viewbagს სხვანაირად ვერ ვაყოლებდი ინდექსში
                 ViewBag.Success = true;
-                return RedirectToAction(nameof(Index));
+                var lecturersList = await _service.GetAllAsync();
+                var indexVM = new LecturerIndexViewModel
+                {
+                    Lecturers = lecturersList.Adapt<List<LecturerViewModel>>()
+                };
+                return View("Index", indexVM);
             }
             else
             {
+                ModelState.Clear();
                 ModelState.AddModelError("ModelError", "Incorrect data format");
                 return View(lecturerVM);
             }
@@ -79,8 +87,13 @@ namespace EduWiki.Controllers
                 await _service.UpdateAsync(lecturer);
                 return RedirectToAction(nameof(Index));
             }
-            ModelState.AddModelError("ModelError", "Incorrect data format");
-            return View(lecturerVM);
+            else
+            {
+
+                ModelState.Clear();
+                ModelState.AddModelError("ModelError", "Incorrect data format");
+                return View(lecturerVM);
+            }
         }
 
         [HttpDelete]

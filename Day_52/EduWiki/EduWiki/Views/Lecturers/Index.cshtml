@@ -6,10 +6,13 @@
         <div class="card card-default">
             <div class="card-header align-items-center px-3 px-md-5">
                 <h2>Lecturers</h2>
-
-                <a href="/Lecturers/Create"><button type="button" class="btn btn-primary">Add Lecturer</button></a>
+                <a asp-action="Create"><button type="button" class="btn btn-primary">Add Lecturer</button></a>
             </div>
             <div class="card-body px-3 px-md-5">
+                @if (ViewBag.Success != null)
+                {
+                    <partial name="_Success" />
+                }
                 <div class="row">
                     @foreach (var lecturer in Model.Lecturers)
                     {
@@ -52,7 +55,7 @@
                             <button id="delete-button" value="@lecturer.Id" class="btn-edit-icon">
                                 <i class="mdi mdi-delete"></i>
                             </button>
-                            <a href="lecturers/details/@lecturer.Id">
+                            <a asp-action="Details" asp-route-id="@lecturer.Id">
                                 <button id="details-button" class="btn-edit-icon">
                                     <i class="mdi mdi-pencil"></i>
                                 </button>
