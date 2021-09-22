@@ -1,9 +1,5 @@
-﻿@using EduWiki.ViewModels
-@model LecturerIndexViewModel
+﻿@model LecturerIndexViewModel
 
-@{
-    Layout = "_Layout";
-}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
 <div class="container">
     <div class="content lecturer-list">
@@ -13,7 +9,6 @@
 
                 <a href="/Lecturers/Create"><button type="button" class="btn btn-primary">Add Lecturer</button></a>
             </div>
-
             <div class="card-body px-3 px-md-5">
                 <div class="row">
                     @foreach (var lecturer in Model.Lecturers)
@@ -57,6 +52,11 @@
                             <button id="delete-button" value="@lecturer.Id" class="btn-edit-icon">
                                 <i class="mdi mdi-delete"></i>
                             </button>
+                            <a href="lecturers/details/@lecturer.Id">
+                                <button id="details-button" class="btn-edit-icon">
+                                    <i class="mdi mdi-pencil"></i>
+                                </button>
+                            </a>
                             <button type="button" class="btn-close-icon" data-dismiss="modal" aria-label="Close">
                                 <i class="mdi mdi-close"></i>
                             </button>

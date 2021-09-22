@@ -1,10 +1,5 @@
 ﻿@model EduWiki.ViewModels.LecturerViewModel
 
-@{
-    Layout = "_Layout";
-}
-
-
 <hr />
 <div class="container">
     <div class="row">
@@ -18,56 +13,63 @@
                     <tr>
                         <td>FirstName: </td>
                         <td>
-                            <input type="text" class="form-control m-input" name="Firstname" id="Firstname" />
-
+                            <input asp-for="FirstName" class="form-control m-input" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
                         </td>
-                    </tr>
+                    </tr> 
                     <tr>
                         <td>LastName: </td>
                         <td>
-                            <input type="text" class="form-control m-input" name="LastName" id="LastName" />
+                            <input asp-for="LastName" class="form-control m-input" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Email: </td>
                         <td>
-                            <input type="text" class="form-control m-input" name="Email" id="Email" />
+                            <input asp-for="Email" class="form-control m-input" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Phone: </td>
                         <td>
-                            <input type="text" class="form-control m-input" name="Phone" id="Phone" />
+                            <input asp-for="Phone" class="form-control m-input" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Photo: </td>
                         <td>
-                            <input type="file" class="form-control m-input" name="ImageFile" id="ImageFile" />
+                            <input asp-for="ImageFile" class="form-control m-input" />
                         </td>
                     </tr>
                     <tr>
-                        <td>AboutText: </td>
+                        <td>About: </td>
                         <td>
-                            <input type="text" class="form-control m-input" name="AboutText" id="AboutText" />
+                            <input asp-for="AboutText" class="form-control m-input" />
+                            <span asp-validation-for="AboutText" class="text-danger"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Course Name: </td>
                         <td>
                             <input type="text" class="form-control m-input" name="Courses[0].Name" id="Courses[0].Name" />
+                            <span asp-validation-for="Courses[0].Name" class="text-danger"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Course Faculty: </td>
                         <td>
                             <input type="text" class="form-control m-input" name="Courses[0].Faculty" id="Courses[0].Faculty" />
+                            <span asp-validation-for="Courses[0].Faculty" class="text-danger"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Course ECTS: </td>
                         <td>
                             <input type="number" class="form-control m-input" name="Courses[0].ECTS" id="Courses[0].ECTS" />
+                            <span asp-validation-for="Courses[0].ECTS" class="text-danger"></span>
                         </td>
                     </tr>
                 </table>

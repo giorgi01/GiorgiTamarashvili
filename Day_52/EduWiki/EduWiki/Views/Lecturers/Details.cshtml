@@ -1,5 +1,104 @@
-﻿@using EduWiki.Domain.POCO
-@model Lecturer
+﻿@model EduWiki.ViewModels.LecturerViewModel
 
-@Model.FirstName
-@Model.LastName
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            @using (Html.BeginForm("Details", "Lecturers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <table id="tbl" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th colspan="4" align="center">Lecturer</th>
+                    </tr>
+                    <tr>
+                        <td>FirstName: </td>
+                        <td>
+                            <input asp-for="FirstName" class="form-control m-input" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LastName: </td>
+                        <td>
+                            <input asp-for="LastName" class="form-control m-input" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>
+                            <input asp-for="Email" class="form-control m-input" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone: </td>
+                        <td>
+                            <input asp-for="Phone" class="form-control m-input" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>About: </td>
+                        <td>
+                            <input asp-for="AboutText" class="form-control m-input" />
+                            <span asp-validation-for="AboutText" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    @foreach (var course in Model.Courses)
+                    {
+                        var courseIndex = Model.Courses.IndexOf(course);
+                        <tr>
+                            <td>Course Name: </td>
+                            <td>
+                                <input type="hidden" class="form-control m-input" name="Courses[@courseIndex].Id" id="Courses[@courseIndex].Id" value="@course.Id" />
+
+                                <input type="text" class="form-control m-input" name="Courses[@courseIndex].Name" id="Courses[@courseIndex].Name" value="@course.Name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Course Faculty: </td>
+                            <td>
+                                <input type="text" class="form-control m-input" name="Courses[@courseIndex].Faculty" id="Courses[@courseIndex].Faculty" value="@course.Faculty" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Course ECTS: </td>
+                            <td>
+                                <input type="number" class="form-control m-input" name="Courses[@courseIndex].ECTS" id="Courses[@courseIndex].ECTS" value="@course.ECTS" />
+                            </td>
+                        </tr>
+                    }
+                    <input type="hidden" id="CoursesCount" value="@Model.Courses.Count" />
+                    <input type="hidden" asp-for="ImagePath" />
+                </table>
+                <button id="addRow" type="button" class="btn btn-info">Add Course</button>
+                <input type="submit" value="Submit" />
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    let count = document.getElementById("CoursesCount").value;
+    $("#addRow").click(function () {
+        var html = '';
+        html += '<tr><td>Course Name: </td>';
+        html += '<td><input type="text" class="form-control m-input" name="Courses[';
+        html += count;
+        html += '].Name" /></td></tr>';
+        html += '<tr><td>Course Faculty: </td>';
+        html += '<td><input type="text" class="form-control m-input" name="Courses[';
+        html += count;
+        html += '].Faculty"/></td></tr>';
+        html += '<tr><td>Course ECTS: </td>';
+        html += '<td><input type="number" class="form-control m-input" name="Courses[';
+        html += count;
+        html += '].ECTS"/></td></tr>';
+
+        count = parseInt(count) + 1;
+        $('#tbl').append(html);
+    });
+</script>

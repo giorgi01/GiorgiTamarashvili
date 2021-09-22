@@ -38,33 +38,49 @@ namespace EduWiki.Controllers
             return View(result);
         }
 
-        public async Task<ActionResult> Details(int id)
-        {
-            var lecturer = await _service.GetAsync(id);
-            return View(lecturer.Adapt<LecturerViewModel>());
-        }
-
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(LecturerViewModel lecturer)
+        public async Task<ActionResult> Create(LecturerViewModel lecturerVM)
         {
-            try
+            if(ModelState.IsValid)
             {
                 // მესმის რომ ქვედა ლაინი LecturerService-ში გადატანა აჯობებდა, 
                 // უბრალოდ IFormFile-ს სერვის ლეიერში მაპინგის დროს ბევრ პრობლემას შევეჩეხე, netstandard-ის ვერსიებზე მიგდებდა ერორებს და აღარ ჩავეძიე
-                lecturer.ImagePath = await _fileService.UploadAsync(lecturer.ImageFile);
-                var serviceModel = lecturer.Adapt<LecturerServiceModel>();
-                await _service.CreateAsync(serviceModel);
+                lecturerVM.ImagePath = await _fileService.UploadAsync(lecturerVM.ImageFile);
+                var lecturer = lecturerVM.Adapt<LecturerServiceModel>();
+                await _service.CreateAsync(lecturer);
+                ViewBag.Success = true;
                 return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
+            else
             {
-                return View("ErrorHandler", ex);
+                ModelState.AddModelError("ModelError", "Incorrect data format");
+                return View(lecturerVM);
             }
+        }
+
+        public async Task<ActionResult> Details(int id)
+        {
+            var lecturer = (await _service.GetAsync(id)).Item2;
+            var lecturerVM = lecturer.Adapt<LecturerViewModel>();
+            return View(lecturerVM);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Details(LecturerViewModel lecturerVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var lecturer = lecturerVM.Adapt<LecturerServiceModel>();
+                await _service.UpdateAsync(lecturer);
+                return RedirectToAction(nameof(Index));
+            }
+            ModelState.AddModelError("ModelError", "Incorrect data format");
+            return View(lecturerVM);
         }
 
         [HttpDelete]
