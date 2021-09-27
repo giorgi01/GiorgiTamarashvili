@@ -1,0 +1,105 @@
+﻿@model EduWiki.ViewModels.LecturerViewModel
+
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            @using (Html.BeginForm("Create", "Lecturers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <table id="tbl" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th colspan="4" align="center">Lecturer</th>
+                    </tr>
+                    <tr>
+                        <td>FirstName: </td>
+                        <td>
+                            <input asp-for="FirstName" class="form-control m-input" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>LastName: </td>
+                        <td>
+                            <input asp-for="LastName" class="form-control m-input" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>
+                            <input asp-for="Email" class="form-control m-input" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone: </td>
+                        <td>
+                            <input asp-for="Phone" class="form-control m-input" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Photo: </td>
+                        <td>
+                            <input asp-for="ImageFile" class="form-control m-input" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>About: </td>
+                        <td>
+                            <input asp-for="AboutText" class="form-control m-input" />
+                            <span asp-validation-for="AboutText" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Course Name: </td>
+                        <td>
+                            <input type="text" class="form-control m-input" name="Courses[0].Name" id="Courses[0].Name" />
+                            <span asp-validation-for="Courses[0].Name" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Course Faculty: </td>
+                        <td>
+                            <input type="text" class="form-control m-input" name="Courses[0].Faculty" id="Courses[0].Faculty" />
+                            <span asp-validation-for="Courses[0].Faculty" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Course ECTS: </td>
+                        <td>
+                            <input type="number" class="form-control m-input" name="Courses[0].ECTS" id="Courses[0].ECTS" />
+                            <span asp-validation-for="Courses[0].ECTS" class="text-danger"></span>
+                        </td>
+                    </tr>
+                </table>
+                <button id="addRow" type="button" class="btn btn-info">Add Course</button>
+                <input type="submit" value="Submit" />
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    
+
+    let count = 1;
+    $("#addRow").click(function () {
+        var html = '';
+        html += '<tr><td>Course Name: </td>';
+        html += '<td><input type="text" class="form-control m-input" name="Courses[';
+        html += count;
+        html += '].Name" /></td></tr>';
+        html += '<tr><td>Course Faculty: </td>';
+        html += '<td><input type="text" class="form-control m-input" name="Courses[';
+        html += count;
+        html += '].Faculty"/></td></tr>';
+        html += '<tr><td>Course ECTS: </td>';
+        html += '<td><input type="number" class="form-control m-input" name="Courses[';
+        html += count;
+        html += '].ECTS"/></td></tr>';
+
+        count += 1;
+        $('#tbl').append(html);
+    });
+</script>

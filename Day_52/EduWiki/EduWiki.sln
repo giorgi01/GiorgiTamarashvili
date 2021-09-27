@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduWiki", "EduWiki\EduWiki.csproj", "{C89CAF84-D2E9-45FE-ADCB-B3A3B01AC4CE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01D4E29F-1ECA-41C9-B64F-206BD60D5508} = {01D4E29F-1ECA-41C9-B64F-206BD60D5508}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduWiki.Domain", "EduWiki.Domain\EduWiki.Domain.csproj", "{D87ADD2B-C594-4CE9-9892-DE1409A371D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduWiki.Services", "EduWiki.Services\EduWiki.Services.csproj", "{AB6D5283-D35B-4726-92E1-967593939A04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduWiki.Persistence", "EduWiki.Persistance\EduWiki.Persistence.csproj", "{01D4E29F-1ECA-41C9-B64F-206BD60D5508}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduWiki.DataEF", "EduWiki.DataEF\EduWiki.DataEF.csproj", "{A0A6A790-B792-4B82-AF7F-CC0AC1AF5AF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduWiki.Data", "EduWiki.Data\EduWiki.Data.csproj", "{610BDFBE-54A2-49DF-9B67-B60B551CE9B2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D87ADD2B-C594-4CE9-9892-DE1409A371D9} = {D87ADD2B-C594-4CE9-9892-DE1409A371D9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C89CAF84-D2E9-45FE-ADCB-B3A3B01AC4CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C89CAF84-D2E9-45FE-ADCB-B3A3B01AC4CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C89CAF84-D2E9-45FE-ADCB-B3A3B01AC4CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C89CAF84-D2E9-45FE-ADCB-B3A3B01AC4CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D87ADD2B-C594-4CE9-9892-DE1409A371D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D87ADD2B-C594-4CE9-9892-DE1409A371D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D87ADD2B-C594-4CE9-9892-DE1409A371D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D87ADD2B-C594-4CE9-9892-DE1409A371D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB6D5283-D35B-4726-92E1-967593939A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6D5283-D35B-4726-92E1-967593939A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6D5283-D35B-4726-92E1-967593939A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6D5283-D35B-4726-92E1-967593939A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D4E29F-1ECA-41C9-B64F-206BD60D5508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D4E29F-1ECA-41C9-B64F-206BD60D5508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D4E29F-1ECA-41C9-B64F-206BD60D5508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D4E29F-1ECA-41C9-B64F-206BD60D5508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0A6A790-B792-4B82-AF7F-CC0AC1AF5AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0A6A790-B792-4B82-AF7F-CC0AC1AF5AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0A6A790-B792-4B82-AF7F-CC0AC1AF5AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0A6A790-B792-4B82-AF7F-CC0AC1AF5AF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610BDFBE-54A2-49DF-9B67-B60B551CE9B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610BDFBE-54A2-49DF-9B67-B60B551CE9B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610BDFBE-54A2-49DF-9B67-B60B551CE9B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610BDFBE-54A2-49DF-9B67-B60B551CE9B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9BFDFD19-B745-419F-AE0E-CD1934D4C53F}
+	EndGlobalSection
+EndGlobal
