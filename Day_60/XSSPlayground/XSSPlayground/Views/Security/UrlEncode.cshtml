@@ -1,0 +1,9 @@
+﻿@using XSSPlayground.ViewModels
+@model XSSViewModel
+
+<form method="post">
+    Url:
+    <input type="text" asp-for="@Model.Text" id="xss">
+    <input type="submit" value="Submit">
+</form>
+Encoded url: @Model?.Text
