@@ -1,0 +1,16 @@
+﻿@using XSSPlayground.ViewModels
+@model XSSViewModel
+
+<form method="post">
+    სცადე &lt;script&gt;alert(1);&lt;/script&gt;
+    <br />
+    <input type="text" asp-for="@Model.Text" id="xss">
+    <input type="submit" value="Submit">
+</form>
+
+Script:
+<script>
+    var xss = document.getElementById("xss").value;
+    var pageMessage = xss ? xss : "";
+    document.write(pageMessage);
+</script>
